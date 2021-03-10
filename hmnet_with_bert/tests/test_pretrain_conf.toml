@@ -1,0 +1,4 @@
+title = "[test] pretrain with news articles"
+
+[log]
+path = "log"
