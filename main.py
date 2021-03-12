@@ -12,7 +12,8 @@ def run(config: str, mode: str):
     :param config: config.toml that specifies all or some of the params for the training/evaluation
     :param mode: mode of the run which can be either 'train' or 'eval'
     """
-    conf = toml.loads(config)
+    with open(config, "r") as fp:
+        conf = toml.load(fp)
 
     if mode == MODE_TRAIN:
         raise NotImplementedError

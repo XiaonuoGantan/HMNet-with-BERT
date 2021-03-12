@@ -141,3 +141,6 @@ cython_debug/
 
 log/
 *.lock
+
+# all preprocessed data items are stored as .jsonl.gz files
+data/**/*.jsonl
