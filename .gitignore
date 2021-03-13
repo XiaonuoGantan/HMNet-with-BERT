@@ -144,3 +144,5 @@ log/
 
 # all preprocessed data items are stored as .jsonl.gz files
 data/**/*.jsonl
+
+.DS_Store
