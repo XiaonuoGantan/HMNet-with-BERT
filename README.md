@@ -1,6 +1,6 @@
 # Overview
 
-Implements and experiments with HMNet from:
+Implements variants with HMNet as the base model. The original paper is
 
 ```
 @article{zhu2020end,

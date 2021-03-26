@@ -1,7 +1,16 @@
 import click
+import signal
 import toml
 
 from hmnet_with_bert.base import MODE_TRAIN, MODE_EVAL
+
+
+# enable attaching from PDB; use 'kill -10 PID' to enter the debugger
+def handle_pdb(_, frame):
+    import pdb; pdb.Pdb().set_trace(frame)
+
+
+signal.signal(signal.SIGUSR1, handle_pdb)
 
 
 @click.command()
