@@ -1,4 +1,4 @@
-title = "pretrain with news articles"
+title = "pretrain with meetings constructed from news articles"
 
 [data]
 dir = "data"

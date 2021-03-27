@@ -10,3 +10,8 @@ Implements variants with HMNet as the base model. The original paper is
   year={2020}
 }
 ```
+
+# Pretrain the model
+
+All executions of the program starts from the project's root folder since all paths specified in the conf files are
+relative.

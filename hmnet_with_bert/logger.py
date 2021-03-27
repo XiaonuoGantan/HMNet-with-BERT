@@ -7,13 +7,23 @@ INFO_LOG_FORMATTER = "%(asctime)s | %(levelname)-8s | %(message)s"
 DEBUG_LOG_FORMATTER = "%(asctime)s | %(levelname)-8s | %(message)s | %(lineno)d:%(funcName)s"
 
 
+global_logger = None
+
+
+def logger() -> logging.Logger:
+    """Return the configured global logger"""
+    global global_logger
+    return global_logger
+
+
 def setup_logger(conf: Dict, logging_level: int = logging.DEBUG) -> logging.Logger:
     """Return a logger instance configured according to `conf` from
     :param conf: toml-configured dict including paths to various directories
     :param logging_level: logging level for the entire logger instance
     """
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging_level)
+    global global_logger
+    global_logger = logging.getLogger(__name__)
+    global_logger.setLevel(logging_level)
 
     logdir = conf["log"]["path"]
 
@@ -29,8 +39,6 @@ def setup_logger(conf: Dict, logging_level: int = logging.DEBUG) -> logging.Logg
     ch.setLevel(logging.INFO)
     ch.setFormatter(INFO_LOG_FORMATTER)
 
-    logger.addHandler(ch)
-    logger.addHandler(debug_fh)
-    logger.addHandler(info_fh)
-
-    return logger
+    global_logger.addHandler(ch)
+    global_logger.addHandler(debug_fh)
+    global_logger.addHandler(info_fh)
